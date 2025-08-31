@@ -552,7 +552,7 @@ for dim_counter in range(0,child_phenotype.shape[1]):
     lm_summary_file_latex.write(ols_fit.summary().as_latex())
     lm_summary_file_latex.write("\n\n\n\n")
 
-    resid_std = ols_fit.resid.std()
+    resid_std = np.sqrt(np.power(ols_fit.resid, 2).mean())
     print(resid_std)
     noise[:,dim_counter] = noise[:,dim_counter]*resid_std
 
